@@ -39,9 +39,9 @@ echo "seg_nom :  $res->seg_nom <br>";
 echo "ap_pat : $res->ap_pat <br>";
 echo "ap_mat :  $res->ap_mat <br>";*/
 ?>
-			<input type="text" name="nombre" id="nombre" value="<?php echo $res->pri_nom ?>"/> 
-			<input type="text" name="apellidos" id="apellidos" value="<?php echo $res->ap_pat ." ".  $res->ap_mat?>"/>
-			<input type="text" name="dni" id="dni" value="<?php echo $dni?>"/>
+<input type="text" name="nombre" id="nombre" value="<?php echo $res->pri_nom ?>"/> 
+<input type="text" name="apellidos" id="apellidos" value="<?php echo $res->ap_pat ." ".  $res->ap_mat?>"/>
+<input type="text" name="dni" id="dni" value="<?php echo $dni?>"/>
 				<!-- <span class="btn btn-primary" id="registrarNuevo">Registrar</span>
  -->
 
@@ -74,16 +74,16 @@ echo "ap_mat :  $res->ap_mat <br>";*/
 		});
 	});
 </script>
-
+ 
 <script>
-function realizaProceso(placa){
-        var parametros = {
-                
-                "placa" : placa
-        };
+function realizaProcesoplaca(){
+        cadena="placa=" + $('#placa').val() +
+				"&dni=" + $('#dni').val() +
+				"&nombre=" + $('#nombre').val() + 
+				"&apellidos=" + $('#apellidos').val();
         $.ajax({
-                data:  parametros, //datos que se envian a traves de ajax
-                url:   'nombre.php', //archivo que recibe la peticion
+                data:  cadena, //datos que se envian a traves de ajax
+                url:   'placa.php', //archivo que recibe la peticion
                 type:  'post', //método de envio
                 beforeSend: function () {
                         $("#resultado").html("Procesando, espere por favor...");
@@ -96,12 +96,12 @@ function realizaProceso(placa){
 </script>
 </head>
 <body>
-Introduce placa
+ Introduce placa
 <input type="text" name="caja_texto" id="placa" value="0"/> 
 
 Realiza info
-<input type="button" href="javascript:;" onclick="realizaProceso($('#placa').val());return false;" value="enviar2"/>
-<br/>
+<input type="button" href="javascript:;" onclick="realizaProcesoplaca();return false;" value="enviar2" pattern="[A-Z0-9]{5,40}" title="Letras y números. Tamaño mínimo: 5. Tamaño máximo: 40"/>
+<br/><br/><br/>
 
 Resultado: <span id="resultado">
-			 <br>
+			 <br> 

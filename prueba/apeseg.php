@@ -24,15 +24,21 @@ function realizaProceso(placa){
                 }
         });
 }
+
+function aMayusculas(obj,id){
+    obj = obj.toUpperCase();
+    document.getElementById(id).value = obj;
+}
 </script>
 </head>
 <body>
 Introduce placa
-<input type="text" name="caja_texto" id="placa" value="0"/> 
+<input type="text" name="caja_texto" id="placa" value="0" pattern="[A-Z0-9]{6}" title="Letras Mayusculas y números." minlength="6" maxlength="6" placeholder="Placa ABB777" onblur="aMayusculas(this.value,this.id)" /> 
+
+<input id="id1" name="prueba" onblur="aMayusculas(this.value,this.id)" type="text"/>
 
 Realiza info
-<input type="button" href="javascript:;" onclick="realizaProceso($('#placa').val());return false;" value="enviar"/>
-<br/>
+<input type="button" href="javascript:;" onclick="realizaProcesoplaca();return false;" value="enviar2" />
 
 Resultado: <span id="resultado">
 			 <br>

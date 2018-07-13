@@ -1,11 +1,20 @@
+<style type="text/css">
+
+input:valid, textarea:valid {
+  border-color:blue;
+}
+input:invalid, textarea:invalid {
+  border-color:red;
+}
+</style>
 <?php
 
 include 'scripts.php';
 ?>
 <html>
 <head>
-<title>Ejemplo sencillo de AJAX</title>
-<!-- <script type="text/javascript" src="js/jquery.js"></script> -->
+
+
 <script>
 function realizaProceso(dni){
         var parametros = {
@@ -13,26 +22,63 @@ function realizaProceso(dni){
                 "dni" : dni
         };
         $.ajax({
-                data:  parametros, //datos que se envian a traves de ajax
-                url:   'nombre.php', //archivo que recibe la peticion
-                type:  'post', //método de envio
+                data:  parametros, 
+                url:   'nombre.php',
+                type:  'post', 
                 beforeSend: function () {
                         $("#resultado").html("Procesando, espere por favor...");
                 },
-                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                success:  function (response) {
                         $("#resultado").html(response);
                 }
         });
 }
 </script>
+<script type="text/javascript">
+        $(document).ready(function(){
+                         
+      var consulta;
+             
+      //hacemos focus
+      $("#dni").focus();
+                                                 
+      //comprobamos si se pulsa una tecla
+      $("#dni").keyup(function(e){
+             //obtenemos el texto introducido en el campo
+             consulta = $("#dni").val();
+                                      
+             //hace la búsqueda
+             $("#resultado").delay(1000).queue(function(n) {                                                 
+                //  $("#resultado").html('<img src="ajax-loader.gif" />');
+                                           
+                        $.ajax({
+                              type: "POST",
+                              url: "php/consulta.php",
+                              data: "b="+consulta,
+                              dataType: "html",
+                              error: function(){
+                                    alert("error petición ajax");
+                              },
+                              success: function(data){                                                      
+                                    $("#resultado").html(data);
+                                    n();
+                              }
+                  });
+                                           
+             });
+                                
+      });
+                          
+});
+</script>
 </head>
 <body>
 Introduce dni
-<input type="text" name="caja_texto" id="dni" value="0"/> 
+<input type="text" pattern="[0-9]{8}" minlength="8" maxlength="8"name="dni" id="dni" value="" placeholder="DNI" /> 
 
-Realiza info
+<!-- Realiza info
 <input type="button" href="javascript:;" onclick="realizaProceso($('#dni').val());return false;" value="enviar"/>
-<br/>
+<br/> -->
 
-Resultado: <span id="resultado">
+Resultado:<br/><br/> <span id="resultado">
 			 <br>
