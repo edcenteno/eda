@@ -1,0 +1,7 @@
+{
+    "require": {
+        "tecactus/sunat-php": "^2.0",
+        "tecactus/reniec-php": "^2.0",
+        "jossmp/reniec": "^1.0"
+    }
+}

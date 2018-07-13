@@ -1,0 +1,7 @@
+[17-May-2018 14:09:54 America/Lima] PHP Strict Standards:  Non-static method ControladorVentas::ctrSumaTotalVentas() should not be called statically in /home/cabifyperu/public_html/admcbf/vistas/modulos/inicio/cajas-superiores.php on line 7
+[17-May-2018 14:23:19 America/Lima] PHP Warning:  mkdir(): File exists in /home/cabifyperu/public_html/admcbf/controladores/usuarios.controlador.php on line 115
+[17-May-2018 14:26:52 America/Lima] PHP Strict Standards:  Non-static method ControladorVentas::ctrSumaTotalVentas() should not be called statically in /home/cabifyperu/public_html/admcbf/vistas/modulos/inicio/cajas-superiores.php on line 7
+[17-May-2018 14:32:41 America/Lima] PHP Warning:  rmdir(vistas/img/usuarios/patyakire): Directory not empty in /home/cabifyperu/public_html/admcbf/controladores/usuarios.controlador.php on line 444
+[17-May-2018 14:42:29 America/Lima] PHP Strict Standards:  Non-static method ControladorVentas::ctrSumaTotalVentas() should not be called statically in /home/cabifyperu/public_html/admcbf/vistas/modulos/inicio/cajas-superiores.php on line 7
+[17-May-2018 14:48:47 America/Lima] PHP Strict Standards:  Non-static method ControladorVentas::ctrSumaTotalVentas() should not be called statically in /home/cabifyperu/public_html/admcbf/vistas/modulos/inicio/cajas-superiores.php on line 7
+[17-May-2018 14:56:31 America/Lima] PHP Strict Standards:  Non-static method ControladorVentas::ctrSumaTotalVentas() should not be called statically in /home/cabifyperu/public_html/admcbf/vistas/modulos/inicio/cajas-superiores.php on line 7

@@ -1,0 +1,3 @@
+[16-Jun-2018 20:36:14 America/Lima] PHP Notice:  Undefined index: fechaInicial in /home/xfct6jnakp0p/public_html/admcbf/controladores/conductores.controlador.php on line 112
+[16-Jun-2018 20:36:14 America/Lima] PHP Notice:  Undefined index: fechaFinal in /home/xfct6jnakp0p/public_html/admcbf/controladores/conductores.controlador.php on line 113
+[16-Jun-2018 20:36:14 America/Lima] PHP Notice:  Undefined variable: tabla in /home/xfct6jnakp0p/public_html/admcbf/controladores/conductores.controlador.php on line 134
