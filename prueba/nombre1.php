@@ -76,9 +76,9 @@ function realizaProceso(dni){
 Introduce dni
 <input type="text" pattern="[0-9]{8}" minlength="8" maxlength="8"name="dni" id="dni" value="" placeholder="DNI" /> 
 
-<!-- Realiza info
+Realiza info
 <input type="button" href="javascript:;" onclick="realizaProceso($('#dni').val());return false;" value="enviar"/>
-<br/> -->
+<br/>
 
 Resultado:<br/><br/> <span id="resultado">
 			 <br>

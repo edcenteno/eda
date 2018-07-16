@@ -1,19 +1,14 @@
 <?php
-
 include 'scripts.php';
 ?>
-<html>
-<head>
-<title>Ejemplo sencillo de AJAX</title>
-<!-- <script type="text/javascript" src="js/jquery.js"></script> -->
 <script>
 function realizaProcesoplaca(){
-        var parametros = {
-                
-                "placa" : placa
-        };
+        cadena="placa=" + $('#placa').val() +
+                                "&dni=" + $('#dni').val() +
+                                "&nombre=" + $('#nombre').val() + 
+                                "&apellidos=" + $('#apellidos').val();
         $.ajax({
-                data:  parametros, //datos que se envian a traves de ajax
+                data:  cadena, //datos que se envian a traves de ajax
                 url:   'placa.php', //archivo que recibe la peticion
                 type:  'post', //método de envio
                 beforeSend: function () {
@@ -24,7 +19,6 @@ function realizaProcesoplaca(){
                 }
         });
 }
-
 function aMayusculas(obj,id){
     obj = obj.toUpperCase();
     document.getElementById(id).value = obj;
@@ -32,13 +26,13 @@ function aMayusculas(obj,id){
 </script>
 </head>
 <body>
-Introduce placa
-<input type="text" name="caja_texto" id="placa" value="0" pattern="[A-Z0-9]{6}" title="Letras Mayusculas y números." minlength="6" maxlength="6" placeholder="Placa ABB777" onblur="aMayusculas(this.value,this.id)" /> 
-
-<input id="id1" name="prueba" onblur="aMayusculas(this.value,this.id)" type="text"/>
+ Introduce placa
+<!-- <input type="text" name="caja_texto" id="placa" value="0"/>  -->
+<input id="placa" name="caja_texto" onblur="aMayusculas(this.value,this.id)" type="text" pattern="[A-Z0-9]{6}" title="Letras y números Solo mayosculas" minlength="6" maxlength="6" placeholder="Placa ABB777"/>
 
 Realiza info
 <input type="button" href="javascript:;" onclick="realizaProcesoplaca();return false;" value="enviar2" />
+<br/><br/><br/>
 
 Resultado: <span id="resultado">
-			 <br>
+                         <br>
