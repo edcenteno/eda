@@ -1,30 +1,41 @@
-<!DOCTYPE html>
-<html>
+<?php
+require 'conexion.php';
+require 'scripts.php';
+
+
+$id = $_GET['id'];
+
+$sql = "SELECT * FROM conductores WHERE cont = '$id'";
+$resultado = $mysqli->query($sql);
+$row = $resultado->fetch_array(MYSQLI_ASSOC);
+
+?>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>Parsear o leer JSON con jQuery - EjemploCodigo</title>
-<link rel="stylesheet" href="cssestilo.css">
-
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" ></script> 
-
-	
-	
+  <title>ARHU Internacional</title>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/ico" />
 </head>
+<?php
+$dni=$row['dni'];
+$pdf=$row['pdf'];
+$blacklist=$row['blacklist'];
+/*var_dump($pdf);*/
 
-
+?>
 <body>
- 
+  <div class="container">
+    <div class="row">
+      <h2 style="text-align:center"></h2>
+    </div>
+    <div class="col-sm-12">
+      <div class="card text-left">
+        <div class="card-header">
+          ARHU INTERNACIONAL
+        </div>
+        <div class="card-body">
+          
 
-
-        <!-- Cabecera -->
-        <header>
-            <h1>Parsear o leer JSON con jQuery</h1>
-        </header>
-
-        <!-- Contenido -->
-        <section>
-            
-    <form class="form-horizontal" method="POST" action="modif_perso2.php" autocomplete="off" style="border-collapse: separate; border-spacing: 10px 5px;">
+         <form class="form-horizontal" method="POST" action="modif_perso2.php" autocomplete="off" style="border-collapse: separate; border-spacing: 10px 5px;">
            <input type="hidden" name="cont"  value="<?php echo $_GET['id']?>">
            <input type="hidden" name="pdf"   value="<?php echo $pdf ?>">
            
@@ -141,40 +152,7 @@
         </div>
       </div>
     </form>
-
-			<script type="text/javascript">
-
-			$(document).ready(function(){
-			var url="generarJSON.php";
-			$("#tablajson tbody").html("");
-			$.getJSON(url,function(conductores){
-			$.each(conductores, function(i,conductor){
-			var newRow =
-			"<tr>"
-			+"<td>"+conductor.dni+"</td>"
-			+"<td>"+conductor.nombre+"</td>"
-			+"<td>"+conductor.apellido+"</td>"
-			+"<td>"+conductor.placa+"</td>"
-			+"<td>"+conductor.ant_penales+"</td>"
-			+"<td>"+conductor.ant_judicial+"</td>"
-			+"<td>"+conductor.ant_policial+"</td>"
-			+"<td>"+conductor.record_cond+"</td>"
-			+"<td>"+conductor.resultado+"</td>"
-			+"<td>"+conductor.soat+"</td>"
-			+"</tr>";
-			$(newRow).appendTo("#tablajson tbody");
-			});
-			});
-			});
-
-			</script>
-
- 
-        </section>
-
-
-
-
-
+    <?php require 'footer.php' ?>
+  </div>
 </body>
 </html>
