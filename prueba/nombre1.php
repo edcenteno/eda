@@ -57,7 +57,7 @@ function realizaProceso(dni){
                               data: "b="+consulta,
                               dataType: "html",
                               error: function(){
-                                    alert("error petición ajax");
+                                    alert("error petición");
                               },
                               success: function(data){                                                      
                                     $("#resultado").html(data);
