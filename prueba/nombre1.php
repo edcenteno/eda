@@ -82,3 +82,4 @@ Introduce dni
 
 Resultado:<br/><br/> <span id="resultado">
 			 <br>
+

@@ -3,7 +3,7 @@
 <?php 
 	function conexion()
 	{
-		return $conexion=mysqli_connect("localhost","root","","prueba");
+		return $conexion=mysqli_connect("localhost","root","","arhuantecedentes");
 	}
 
  ?>

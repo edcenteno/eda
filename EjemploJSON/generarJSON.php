@@ -1,5 +1,5 @@
 <?php
-$dni= $_POST['dni'];
+
 $server = "localhost";
 $user = "root";
 $pass = "";
@@ -10,7 +10,7 @@ $conexion = mysqli_connect($server, $user, $pass,$bd)
 or die("Ha sucedido un error inexperado en la conexion de la base de datos");
 
 //generamos la consulta
-$sql = "SELECT * FROM conductores where dni = '$dni'";
+$sql = "SELECT * FROM conductores where dni = 47959636";
 mysqli_set_charset($conexion, "utf8"); //formato de datos utf8
 
 if(!$result = mysqli_query($conexion, $sql)) die();

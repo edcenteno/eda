@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 $dni=$_POST['dni'];
 //echo "$ruc";
 
@@ -38,8 +39,9 @@ $res = $out->data->persona;
 echo "seg_nom :  $res->seg_nom <br>";
 echo "ap_pat : $res->ap_pat <br>";
 echo "ap_mat :  $res->ap_mat <br>";*/
-?>
-<input type="text" name="nombre" id="nombre" value="<?php echo $res->pri_nom ?>"/> 
+if ($res) {?>
+
+	<input type="text" name="nombre" id="nombre" value="<?php echo $res->pri_nom ?>"/> 
 <input type="text" name="apellidos" id="apellidos" value="<?php echo $res->ap_pat ." ".  $res->ap_mat?>"/>
 <input type="text" name="dni" id="dni" value="<?php echo $dni?>"/>
 				<!-- <span class="btn btn-primary" id="registrarNuevo">Registrar</span>
@@ -105,3 +107,12 @@ Realiza info
 
 Resultado: <span id="resultado">
 			 <br> 
+<?php
+} else {
+	?>
+	Temporalmente el sistema no esta prestando servicios
+	<?php
+}
+
+?>
+
