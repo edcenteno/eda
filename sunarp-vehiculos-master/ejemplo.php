@@ -3,7 +3,7 @@
     require ("sunarp.php");
 
     $search = new Sunarp();
-    $placa="ABI453";
+    $placa="SAJ153";
     header('Content-type: application/json');
     echo json_encode( $search->BuscaDatosSunarp($placa), JSON_PRETTY_PRINT );
 ?>

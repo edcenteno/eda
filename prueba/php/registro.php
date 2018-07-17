@@ -6,19 +6,22 @@
 		$nombre=$_POST['nombre'];
 		$apellidos=$_POST['apellidos'];
 		$dni=$_POST['dni'];
+		$estado=$_POST['estado'];
+		$placa=$_POST['placa'];
 
 		if(buscaRepetido($dni,$conexion)==1){
 			echo 2;
 		}else{
-			$sql="INSERT into info (dni,nombre, apellidos)
-				values ('$dni','$nombre', '$apellidos')";
-			echo $result=mysqli_query($conexion,$sql);
-		//	var_dump($sql);
+			$sql="INSERT into conductores (dni,nombre, apellido,soat,placa, fecha)
+				values ('$dni','$nombre', '$apellidos', '$estado', '$placa', NOW( ))";
+			$result=mysqli_query($conexion,$sql);
+			//var_dump($sql);
+			echo "1";
 		}
 
 
 		function buscaRepetido($dni,$conexion){
-			$sql="SELECT * from info 
+			$sql="SELECT * from conductores 
 				where dni='$dni'";
 			$result=mysqli_query($conexion,$sql);
 
