@@ -1,7 +1,7 @@
 <style type="text/css">
 
 input:valid, textarea:valid {
-  border-color:blue;
+  border-color:#66afe9;
 }
 input:invalid, textarea:invalid {
   border-color:red;
@@ -29,6 +29,7 @@ function realizaProceso(dni){
                         $("#resultado").html("Procesando, espere por favor...");
                 },
                 success:  function (response) {
+                        $('#dni').attr('disabled',true);
                         $("#resultado").html(response);
                 }
         });
@@ -74,12 +75,24 @@ function realizaProceso(dni){
 </head>
 <body>
 Introduce dni
-<input type="text" pattern="[0-9]{8}" minlength="8" maxlength="8"name="dni" id="dni" value="" placeholder="DNI" /> 
+<!-- ENTRADA PARA EL DNI -->
 
- Realiza info
-<input type="button" href="javascript:;" onclick="realizaProceso($('#dni').val());return false;" value="enviar"/>
-<br/> 
+             <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-id-card"></i></span> 
 
-Resultado:<br/><br/> <span id="resultado">
-			 <br>
+                <input type="text" class="form-control input-lg" placeholder="Ingresar DNI" pattern="[0-9]{8}" minlength="8" maxlength="8"name="dni" id="dni" value="" required>
+
+                <span class="input-group-addon"><i class="fa fa-search btn btn-primary" href="javascript:;" onclick="realizaProceso($('#dni').val());return false;"></i></span> 
+              </div>
+            </div>
+ 
+
+ 
+<!-- <input type="button" href="javascript:;" onclick="realizaProceso($('#dni').val());return false;" value="Buscar" class="btn btn-primary"/> -->
+
+ <span id="resultado">
+
 

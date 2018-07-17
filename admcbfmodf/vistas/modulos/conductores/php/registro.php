@@ -8,6 +8,16 @@
 		$dni=$_POST['dni'];
 		$estado=$_POST['estado'];
 		$placa=$_POST['placa'];
+		$rep=$_POST['rep'];
+
+		if ($rep ==1) {
+			$sql="INSERT into incidencia (dni,nombre, apellido,soat,placa, fecha)
+				values ('$dni','$nombre', '$apellidos', '$estado', '$placa', NOW( ))";
+			$result=mysqli_query($conexion,$sql);
+		} else {
+			# code...
+		}
+		
 
 		if(buscaRepetido($dni,$conexion)==1){
 			echo 2;

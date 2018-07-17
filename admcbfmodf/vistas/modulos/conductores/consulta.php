@@ -90,10 +90,53 @@ if (is_numeric($dni) && strlen($dni) == 8) {
   print_r($out);
     echo $out[0]; */
   ?>
+  
+   <!-- ENTRADA PARA EL NOMBRE -->
 
-<input type="text" name="nombre" id="nombre" value="<?php  ?>"/> 
-<input type="text" name="apellidos" id="apellidos" value="<?php ?>"/>
-<input type="text" name="dni" id="dni" value="<?php echo $dni?>"/>
+             <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nombre" placeholder="Ingresar nombre" id="nombre" required readonly="">
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL APELLIDO -->
+
+             <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="apellidos" placeholder="Ingresar apellido" id="apellidos" required readonly="">
+
+              </div>
+            </div>
+
+              <!-- ENTRADA PARA EL PLACA -->
+
+             <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-car"></i></span> 
+
+                <input type="text" class="form-control input-lg" id="placa" name="caja_texto" onblur="aMayusculas(this.value,this.id)" pattern="[A-Z0-9]{6}" title="Letras y números Solo mayosculas" minlength="6" maxlength="6" placeholder="Placa ABB777" required >
+
+                <span class="input-group-addon"><i class="fa fa-search btn btn-primary" href="javascript:;" onclick="realizaProcesoplaca($('#dni').val());return false;"></i></span>
+
+              </div>
+<!--   <input id="placa" name="caja_texto" onblur="aMayusculas(this.value,this.id)" type="text" pattern="[A-Z0-9]{6}" title="Letras y números Solo mayosculas" minlength="6" maxlength="6" placeholder="Placa ABB777"/> -->
+<!-- <input type="button" href="javascript:;" onclick="realizaProcesoplaca();return false;" value="enviar2"/>
+ -->
+<!-- <input type="text" name="nombre" id="nombre" value="<?php  ?>"/> 
+<input type="text" name="apellidos" id="apellidos" value="<?php ?>"/> -->
+<input type="text" hidden name="dni" id="dni" value="<?php echo $dni?>"/>
 <!-- <span class="btn btn-primary" id="registrarNuevo">Registrar</span> -->
 
 
@@ -104,34 +147,15 @@ if (is_numeric($dni) && strlen($dni) == 8) {
     $('#nombre').val(x.result.Nombres);
     $('#apellidos').val(x.result.apellidos);
     $('#dni').val(x.result.DNI);
-    $('#registrarNuevo').click(function(){
-
-      cadena="nombre=" + $('#nombre').val() +
-          "&apellidos=" + $('#apellidos').val() +
-          "&dni=" + $('#dni').val();
-
-          $.ajax({
-            type:"POST",
-            url:"../admcbfmodf/vistas/modulos/conductores/php/registro.php",
-            data:cadena,
-            success:function(r){
-
-              if(r==2){
-                alertify.error("Este usuario ya existe, prueba con otro");
-              }
-              else if(r==1){
-                // $('#frmRegistro')[0].reset();
-                alertify.success("Agregado con exito");
-              }else{
-                alertify.error("Fallo al agregar");
-              }
-            }
-          });
-    });
+  
   });
 </script>
  
 <script>
+  function aMayusculas(obj,id){
+    obj = obj.toUpperCase();
+    document.getElementById(id).value = obj;
+}
 function realizaProcesoplaca(){
         cadena="placa=" + $('#placa').val() +
         "&dni=" + $('#dni').val() +
@@ -149,18 +173,14 @@ function realizaProcesoplaca(){
                 }
         });
 }
+
 </script>
 </head>
 <body>
- Introduce placa
-<input type="text" name="caja_texto" id="placa" value="0"/> 
 
-Realiza info
-<input type="button" href="javascript:;" onclick="realizaProcesoplaca();return false;" value="enviar2" pattern="[A-Z0-9]{5,40}" title="Letras y números. Tamaño mínimo: 5. Tamaño máximo: 40"/>
-<br/><br/><br/>
 
-Resultado: <span id="resultado">
-       <br> 
+<span id="resultado">
+      
        <?php
 if ($out) {
   ?>
