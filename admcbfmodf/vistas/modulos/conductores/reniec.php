@@ -29,7 +29,7 @@ function realizaProceso(dni){
                         $("#resultado").html("Procesando, espere por favor...");
                 },
                 success:  function (response) {
-                        $('#dni').attr('disabled',true);
+                        
                         $("#resultado").html(response);
                 }
         });

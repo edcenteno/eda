@@ -90,7 +90,7 @@ if (is_numeric($dni) && strlen($dni) == 8) {
   print_r($out);
     echo $out[0]; */
   ?>
-  
+
    <!-- ENTRADA PARA EL NOMBRE -->
 
              <div class="form-group">
@@ -147,7 +147,7 @@ if (is_numeric($dni) && strlen($dni) == 8) {
     $('#nombre').val(x.result.Nombres);
     $('#apellidos').val(x.result.apellidos);
     $('#dni').val(x.result.DNI);
-  
+    $('#dni').attr('disabled',true);
   });
 </script>
  
@@ -325,7 +325,19 @@ if ($out) {
 }
 
 } else {
-  echo "Introduzca un DNI valido";
+  ?>
+  <script type="text/javascript">
+    swal({
+
+      type: "error",
+      title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
+      showConfirmButton: true,
+      confirmButtonText: "Cerrar"
+
+      
+    });
+  </script>
+                  <?php
 }
 
 

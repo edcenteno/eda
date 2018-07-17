@@ -68,6 +68,7 @@ echo "nombre ". $nombre." <br>";
 echo "apellidos ". "$apellidos"." <br>";
 echo "Estado :  ".$out['Estado'] ."<br>";*/
 
+
 ?>
    <!-- ENTRADA PARA EL NOMBRE -->
 
@@ -241,8 +242,8 @@ $apellidos= $_POST['apellidos'];
 $dni = $_POST['dni'];
 $estado = $out['Estado'];
 
-
 ?>
+
    <!-- ENTRADA PARA EL NOMBRE -->
 
              <div class="form-group">
@@ -373,8 +374,19 @@ $estado = $out['Estado'];
 <?php
 }
 
-} else {
-  echo "Introduzca una placa valida";
+} else{ ?>
+  <script type="text/javascript">
+    swal({
+
+      type: "error",
+      title: "¡Introduzca una placa valida!",
+      showConfirmButton: true,
+      confirmButtonText: "Cerrar"
+
+      
+    });
+  </script>
+                  <?php
 }
 
 

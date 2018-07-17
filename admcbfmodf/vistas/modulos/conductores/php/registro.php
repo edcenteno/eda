@@ -10,6 +10,24 @@
 		$placa=$_POST['placa'];
 		$rep=$_POST['rep'];
 
+		var_dump($estado);
+		if ($estado==" ") {
+		?>
+		<script type="text/javascript">
+		swal({
+
+		  type: "warning",
+		  title: "¡La placa a registrar no tiene SOAT!",
+		  showConfirmButton: true,
+		  confirmButtonText: "Cerrar"
+
+		  
+		});
+		</script>
+		<?php
+		} else {
+		# code...
+		}
 		if ($rep ==1) {
 			$sql="INSERT into incidencia (dni,nombre, apellido,soat,placa, fecha)
 				values ('$dni','$nombre', '$apellidos', '$estado', '$placa', NOW( ))";
