@@ -67,7 +67,7 @@ echo"</pre>";*/
 /*echo "NombreCompania : ".$out['NombreCompania']." <br>";
 echo "FechaInicio : ". $out['FechaInicio'] ."<br>";
 echo "FechaFin : ".$out['FechaFin']." <br>";*/
-$nombre =$_POST['nombre'];
+$nombres =$_POST['nombres'];
 $apellidos= $_POST['apellidos'];
 $dni = $_POST['dni'];
 $estado = $out['Estado'];
@@ -94,7 +94,7 @@ if ($out == NULL) {
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nombre" id="nombre" value="<?php echo $nombre ?>"  readonly="">
+                <input type="text" class="form-control input-lg" name="nombres" id="nombres" value="<?php echo $nombres ?>"  readonly="">
 
               </div>
 
@@ -137,7 +137,7 @@ if ($out == NULL) {
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nombre" id="nombre" value="<?php echo $nombre ?>"  readonly="">
+                <input type="text" class="form-control input-lg" name="nombres" id="nombres" value="<?php echo $nombres ?>"  readonly="">
 
               </div>
 
@@ -169,7 +169,7 @@ if ($out == NULL) {
               </div>
             </div>
 
-<input type="text" hidden name="nombre" id="nombre" value="<?php echo $nombre ?>"/> 
+<input type="text" hidden name="nombres" id="nombres" value="<?php echo $nombre ?>"/> 
 <input type="text" hidden name="apellidos" id="apellidos" value="<?php echo $apellidos?>"/>
 <input type="text" hidden name="dni" id="dni" value="<?php echo $dni?>"/>
 <input type="text" hidden name="estado" id="estado" value="<?php echo $estado?>"/>
@@ -186,7 +186,7 @@ if ($out == NULL) {
     $('#crv').val(crvjs.message);
 		$('#registrarNuevo').click(function(){
 
-			cadena="nombre=" + $('#nombre').val() +
+			cadena="nombres=" + $('#nombres').val() +
 					"&apellidos=" + $('#apellidos').val() +
 					"&dni=" + $('#dni').val() +
           "&rep=" + $('#rep').val() +
@@ -289,7 +289,7 @@ echo"</pre>";*/
 /*echo "NombreCompania : ".$out['NombreCompania']." <br>";
 echo "FechaInicio : ". $out['FechaInicio'] ."<br>";
 echo "FechaFin : ".$out['FechaFin']." <br>";*/
-$nombre =$_POST['nombre'];
+$nombres =$_POST['nombres'];
 $apellidos= $_POST['apellidos'];
 $dni = $_POST['dni'];
 $estado = $out['Estado'];
@@ -304,7 +304,7 @@ $estado = $out['Estado'];
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nombre" id="nombre" value="<?php echo $nombre ?>"  readonly="">
+                <input type="text" class="form-control input-lg" name="nombres" id="nombres" value="<?php echo $nombre ?>"  readonly="">
 
               </div>
 
@@ -349,7 +349,7 @@ $estado = $out['Estado'];
               </div>
             </div>
 
-<input type="text" hidden name="nombre" id="nombre" value="<?php echo $nombre ?>"/> 
+<input type="text" hidden name="nombres" id="nombres" value="<?php echo $nombre ?>"/> 
 <input type="text" hidden name="apellidos" id="apellidos" value="<?php echo $apellidos?>"/>
 <input type="text" hidden name="dni" id="dni" value="<?php echo $dni?>"/>
 <input type="text" hidden name="estado" id="estado" value="<?php echo $estado?>"/>
@@ -366,14 +366,14 @@ $estado = $out['Estado'];
     $('#crv').val(crvjs.message);
     $('#registrarNuevo').click(function(){
 
-      cadena="nombre=" + $('#nombre').val() +
+      cadena="nombres=" + $('#nombres').val() +
           "&apellidos=" + $('#apellidos').val() +
           "&dni=" + $('#dni').val() +
           "&rep=" + $('#rep').val() +
           "&crv=" + $('#crv').val() +
           "&placa=" + $('#placa').val() +
           "&estado=" + $('#estado').val();
-          
+
           $.ajax({
             type:"POST",
             url:"../admcbfmodf/vistas/modulos/conductores/php/registro.php",

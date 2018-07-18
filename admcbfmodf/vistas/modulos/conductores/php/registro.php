@@ -3,7 +3,7 @@
 	require_once "conexion.php";
 	$conexion=conexion();
 
-		$nombre=$_POST['nombre'];
+		$nombre=$_POST['nombres'];
 		$apellidos=$_POST['apellidos'];
 		$dni=$_POST['dni'];
 		$estado=$_POST['estado'];

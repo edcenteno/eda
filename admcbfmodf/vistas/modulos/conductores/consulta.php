@@ -4,7 +4,7 @@
   include "php/conexion.php";
 $conexion=conexion();
 
-$dni=$_POST['dni'];
+$dni=$_POST['dnireni'];
 if (is_numeric($dni) && strlen($dni) == 8) {
 
   function buscaRepetido($dni,$conexion){
@@ -74,21 +74,14 @@ if (is_numeric($dni) && strlen($dni) == 8) {
     }
   }
   
-  // MODO DE USO
-  /*  */
+
   require_once( __DIR__ . "/src/autoload.php" );
-  //require_once( __DIR__ . "/vendor/autoload.php" ); // si se usa composer
+
   $test = new \DatosPeru\Peru();
-  //echo"<pre>";
-  //print_r($test->search("$dni"));
+
   $out=$test->search("$dni");
   $a = json_encode($out);
-  //echo "$a";
-  //echo json_decode($out, true);
-  //echo $out->result[1];
-  /*
-  print_r($out);
-    echo $out[0]; */
+
   ?>
 
    <!-- ENTRADA PARA EL NOMBRE -->
@@ -99,7 +92,7 @@ if (is_numeric($dni) && strlen($dni) == 8) {
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nombre" placeholder="Ingresar nombre" id="nombre" required readonly="">
+                <input type="text" class="form-control input-lg" name="nombres" placeholder="Ingresar nombre" id="nombres" required readonly="">
 
               </div>
 
@@ -131,23 +124,20 @@ if (is_numeric($dni) && strlen($dni) == 8) {
                 <span class="input-group-addon"><i class="fa fa-search btn btn-primary" href="javascript:;" onclick="realizaProcesoplaca($('#dni').val());return false;"></i></span>
 
               </div>
-<!--   <input id="placa" name="caja_texto" onblur="aMayusculas(this.value,this.id)" type="text" pattern="[A-Z0-9]{6}" title="Letras y números Solo mayosculas" minlength="6" maxlength="6" placeholder="Placa ABB777"/> -->
-<!-- <input type="button" href="javascript:;" onclick="realizaProcesoplaca();return false;" value="enviar2"/>
- -->
-<!-- <input type="text" name="nombre" id="nombre" value="<?php  ?>"/> 
-<input type="text" name="apellidos" id="apellidos" value="<?php ?>"/> -->
+
 <input type="text" hidden name="dni" id="dni" value="<?php echo $dni?>"/>
-<!-- <span class="btn btn-primary" id="registrarNuevo">Registrar</span> -->
+
 
 
 <script type="text/javascript">
   var x =<?php echo $a ?>;
 
   $(document).ready(function(){
-    $('#nombre').val(x.result.Nombres);
+    $('#nombres').val(x.result.Nombres);
     $('#apellidos').val(x.result.apellidos);
     $('#dni').val(x.result.DNI);
-    $('#dni').attr('disabled',true);
+    $('#dnireni').attr('disabled',true);
+    $('#busq').attr('disabled',true);
   });
 </script>
  
@@ -159,7 +149,7 @@ if (is_numeric($dni) && strlen($dni) == 8) {
 function realizaProcesoplaca(){
         cadena="placa=" + $('#placa').val() +
         "&dni=" + $('#dni').val() +
-        "&nombre=" + $('#nombre').val() + 
+        "&nombres=" + $('#nombres').val() + 
         "&apellidos=" + $('#apellidos').val();
         $.ajax({
                 data:  cadena, //datos que se envian a traves de ajax

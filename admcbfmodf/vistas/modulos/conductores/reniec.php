@@ -9,17 +9,17 @@ input:invalid, textarea:invalid {
 </style>
 <?php
 
-include 'scripts.php';
+//include 'scripts.php';
 ?>
 <html>
 <head>
 
 
 <script>
-function realizaProceso(dni){
+function realizaProceso(dnireni){
         var parametros = {
                 
-                "dni" : dni
+                "dnireni" : dnireni
         };
         $.ajax({
                 data:  parametros, 
@@ -83,9 +83,9 @@ Introduce dni
               
                 <span class="input-group-addon"><i class="fa fa-id-card"></i></span> 
 
-                <input type="text" class="form-control input-lg" placeholder="Ingresar DNI" pattern="[0-9]{8}" minlength="8" maxlength="8"name="dni" id="dni" value="" required>
+                <input type="text" class="form-control input-lg" placeholder="Ingresar DNI" pattern="[0-9]{8}" minlength="8" maxlength="8"name="dnireni" id="dnireni" value="" required>
 
-                <span class="input-group-addon"><i class="fa fa-search btn btn-primary" href="javascript:;" onclick="realizaProceso($('#dni').val());return false;"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-search btn btn-primary" id="busq" href="javascript:;" onclick="realizaProceso($('#dnireni').val());return false;"></i></span> 
               </div>
             </div>
  
