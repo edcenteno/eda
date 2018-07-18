@@ -21,6 +21,15 @@ if (strlen($placa) == 6) {
 
   if(buscaRepetido($placa,$conexion)==0){
 //jhon$token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.MTA2MQ.mNioS0vL0ckba0lPV955HvekjFHzvIcqEVqy1_kBerM';
+
+  	// Modo de Uso
+	require_once("crv/src/autoload.php");
+	
+	$test = new \Pit\Pit();
+	$out=$test->check( "$placa" ); // Sin Requisitoria
+
+	$x = json_encode($out);
+
 $token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.MTAzNA.AmJhTMIv9Bzd9h4KjWijho4Wf0apnT4IoqasWM0dLLE';//token prestado
 $query = "
 query {
@@ -74,10 +83,15 @@ echo "Estado :  ".$out['Estado'] ."<br>";
 <input type="text" hidden name="dni" id="dni" value="<?php echo $dni?>"/>
 <input type="text" hidden name="estado" id="estado" value="<?php echo $estado?>"/>
 <input type="text" hidden name="placa" id="placa" value="<?php echo $placa?>"/>
+<input type="text" name="crv" id="crv" value=""/>
 <span class="btn btn-primary" id="registrarNuevo">Registrar</span>
 
 <script type="text/javascript">
+	var crvjs =<?php echo $x ?>;
 	$(document).ready(function(){
+
+		$('#crv').val(crvjs.message);
+
 		$('#registrarNuevo').click(function(){
 
 			cadena="nombre=" + $('#nombre').val() +

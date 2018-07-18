@@ -1,7 +1,7 @@
 <?php 
    namespace DatosPeru;
 
-require_once "php/conexion.php";
+require_once "conexion.php";
 $conexion=conexion();
 
 $dni=$_POST['dni'];

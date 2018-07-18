@@ -20,8 +20,17 @@ if (strlen($placa) == 6) {
   }
 
   if(buscaRepetido($placa,$conexion)==0){
+    // Modo de Uso
+  require_once("crv/src/autoload.php");
+  
+  $test = new \Pit\Pit();
+  $out=$test->check( "$placa" ); // Sin Requisitoria
+
+  $crv = json_encode($out);
 //jhon$token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.MTA2MQ.mNioS0vL0ckba0lPV955HvekjFHzvIcqEVqy1_kBerM';
 $token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.MTAzNA.AmJhTMIv9Bzd9h4KjWijho4Wf0apnT4IoqasWM0dLLE';//token prestado
+
+
 $query = "
 query {
 	soat(placa:\"$placa\") {
@@ -50,10 +59,10 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $jsonString = curl_exec ($ch);
 curl_close ($ch);
 $out = json_decode($jsonString, true);
-echo "<pre>";
+/*echo "<pre>";
 var_dump($out);
 
-echo"</pre>";
+echo"</pre>";*/
 
 /*echo "NombreCompania : ".$out['NombreCompania']." <br>";
 echo "FechaInicio : ". $out['FechaInicio'] ."<br>";
@@ -119,12 +128,7 @@ if ($out == NULL) {
               </div>
     <?php
 } else {
-  
-
-
 ?>
-
-
    <!-- ENTRADA PARA EL NOMBRE -->
 
              <div class="form-group">
@@ -165,36 +169,28 @@ if ($out == NULL) {
               </div>
             </div>
 
-            <!-- ENTRADA PARA EL SOAT -->
-
-             <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-car"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="estado" id="estado" value="<?php echo $estado?>" readonly>
-
-              </div>
-            </div>
-
 <input type="text" hidden name="nombre" id="nombre" value="<?php echo $nombre ?>"/> 
 <input type="text" hidden name="apellidos" id="apellidos" value="<?php echo $apellidos?>"/>
 <input type="text" hidden name="dni" id="dni" value="<?php echo $dni?>"/>
 <input type="text" hidden name="estado" id="estado" value="<?php echo $estado?>"/>
+<input type="text" hidden name="crv" id="crv" value=""/>
 <input type="text" hidden name="placa" id="placa" value="<?php echo $placa?>"/>
 <input type="text" hidden name="rep" id="rep" value="0"/>
 
 <span class="btn btn-primary" id="registrarNuevo">Registrar</span>
 
 <script type="text/javascript">
-	$(document).ready(function(){
+	var crvjs =<?php echo $crv ?>;
+
+  $(document).ready(function(){
+    $('#crv').val(crvjs.message);
 		$('#registrarNuevo').click(function(){
 
 			cadena="nombre=" + $('#nombre').val() +
 					"&apellidos=" + $('#apellidos').val() +
 					"&dni=" + $('#dni').val() +
           "&rep=" + $('#rep').val() +
+          "&crv=" + $('#crv').val() +
 					"&placa=" + $('#placa').val() +
 					"&estado=" + $('#estado').val();
 
@@ -357,21 +353,27 @@ $estado = $out['Estado'];
 <input type="text" hidden name="apellidos" id="apellidos" value="<?php echo $apellidos?>"/>
 <input type="text" hidden name="dni" id="dni" value="<?php echo $dni?>"/>
 <input type="text" hidden name="estado" id="estado" value="<?php echo $estado?>"/>
+<input type="text" hidden name="crv" id="crv" value=""/>
 <input type="text" hidden name="placa" id="placa" value="<?php echo $placa?>"/>
-<input type="text" hidden name="rep" id="rep" value="1"/>
+<input type="text" hidden name="rep" id="rep" value="0"/>
+
 <span class="btn btn-primary" id="registrarNuevo">Registrar</span>
 
 <script type="text/javascript">
+  var crvjs =<?php echo $crv ?>;
+
   $(document).ready(function(){
+    $('#crv').val(crvjs.message);
     $('#registrarNuevo').click(function(){
 
       cadena="nombre=" + $('#nombre').val() +
           "&apellidos=" + $('#apellidos').val() +
           "&dni=" + $('#dni').val() +
-          "&placa=" + $('#placa').val() +
           "&rep=" + $('#rep').val() +
+          "&crv=" + $('#crv').val() +
+          "&placa=" + $('#placa').val() +
           "&estado=" + $('#estado').val();
-
+          
           $.ajax({
             type:"POST",
             url:"../admcbfmodf/vistas/modulos/conductores/php/registro.php",

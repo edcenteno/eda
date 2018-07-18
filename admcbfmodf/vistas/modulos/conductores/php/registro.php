@@ -8,6 +8,7 @@
 		$dni=$_POST['dni'];
 		$estado=$_POST['estado'];
 		$placa=$_POST['placa'];
+		$crv=$_POST['crv'];
 		$rep=$_POST['rep'];
 
 		
@@ -23,8 +24,8 @@
 		if(buscaRepetido($dni,$conexion)==1){
 			echo 2;
 		}else{
-			$sql="INSERT into conductores (dni,nombre, apellido,soat,placa, fecha)
-				values ('$dni','$nombre', '$apellidos', '$estado', '$placa', NOW( ))";
+			$sql="INSERT into conductores (dni,nombre, apellido,soat,placa, crv, fecha)
+				values ('$dni','$nombre', '$apellidos', '$estado', '$placa', '$crv',  NOW( ))";
 			$result=mysqli_query($conexion,$sql);
 			//var_dump($sql);
 			echo "1";
