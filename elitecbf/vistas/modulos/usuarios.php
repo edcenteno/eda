@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="vistas/assets/node_modules/dropify/dist/css/dropify.min.css">
 <!-- ============================================================== -->
 <!-- Container fluid  -->
 <!-- ============================================================== -->
@@ -192,6 +193,9 @@ MODAL AGREGAR USUARIO
                     </div>
                 </div>
 
+            </div>
+            <div class="col-6 col-sm-6">
+
                 <!-- ENTRADA PARA LA CONTRASEÑA -->
 
                 <div class="form-group">
@@ -200,12 +204,9 @@ MODAL AGREGAR USUARIO
                         <div class="input-group-prepend">
                          <span class="input-group-text" id="basic-addon2"><i class="fa fa-lock"></i></span>
                         </div>
-                    <input type="text" class="form-control" name="nuevoPassword" placeholder="Ingresar contraseña" required" aria-label="Contraseña" aria-describedby="basic-addon2">
+                    <input type="password" class="form-control" name="nuevoPassword" placeholder="Ingresar contraseña" required" aria-label="Contraseña" aria-describedby="basic-addon2">
                     </div>
                 </div>
-
-            </div>
-            <div class="col-6 col-sm-6">
 
               <!-- ENTRADA PARA EL CORREO -->
 
@@ -227,42 +228,36 @@ MODAL AGREGAR USUARIO
                         <div class="input-group-prepend">
                          <span class="input-group-text" id="basic-addon2"><i class="fa fa-phone"></i></span>
                         </div>
-                    <input type="text" class="form-control" name="nuevoTelefono" placeholder="Ingresar telefono" required" aria-label="Telefono" id="nuevoTelefono" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" name="nuevoTelefono" placeholder="Ingresar telefono" required" aria-label="Telefono" id="nuevoTelefono" aria-describedby="basic-addon2" data-mask="999999999">
                     </div>
                 </div>
 
                 <!-- ENTRADA PARA SELECCIONAR SU PERFIL -->
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="perfil">Perfil</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                          <span class="input-group-text" id="basic-addon2"><i class="fa fa-user"></i></span>
-                        </div>
-                    <input type="text" class="form-control" required" aria-label="perfil" aria-describedby="basic-addon2" name="nuevoPerfil" value="Operador" id="nuevoPerfil" readonly="">
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-6 col-sm-6">
-
-                <!-- ENTRADA PARA SUBIR FOTO -->
-
-                 <div class="form-group">
-                  
-                  <div class="panel">SUBIR FOTO</div>
-
-                  <input type="file" class="nuevaFoto" name="nuevaFoto">
-                  <input type="file" id="input-file-now" class="dropify" />
-
-                  <p class="help-block">Peso máximo de la foto 2MB</p>
-
-                  <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
-
-                </div>
+                        </div> -->
+                    <input type="text" hidden="" class="form-control" required" aria-label="perfil" aria-describedby="basic-addon2" name="nuevoPerfil" value="Operador" id="nuevoPerfil" readonly="">
+                   <!--  </div>
+                </div> -->
 
             </div>
             </div>
+            <!-- ENTRADA PARA SUBIR FOTO -->
+
+             <div class="form-group">
+              
+              <div class="panel">SUBIR FOTO</div>
+
+                <input type="file" id="input-file-now" name="nuevaFoto" class="dropify" />
+
+              <p class="help-block">*Peso máximo de la foto 2MB <br> **No es obligatorio</p>
+              </div>
+
+            
         </div>
         </div>
 
@@ -309,7 +304,7 @@ MODAL EDITAR USUARIO
         CABEZA DEL MODAL
         ======================================-->
 
-        <div class="modal-header" style="background:#3c8dbc; color:white">
+        <div class="modal-header" style="background:#6f42c1; color:white">
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
@@ -325,47 +320,45 @@ MODAL EDITAR USUARIO
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EL NOMBRE -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+             <!-- ENTRADA PARA EL NOMBRE -->
+                
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                         <span class="input-group-text" id="basic-addon2"><i class="fa fa-user"></i></span>
+                        </div>
+                    <input type="text" class="form-control" id="editarNombre" name="editarNombre" required" aria-label="Nombre" aria-describedby="basic-addon2">
+                    </div>
+                </div>
 
-                <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" value="" required>
+                <!-- ENTRADA PARA EL USUARIO -->
 
-              </div>
+                <div class="form-group">
+                    <label for="Usuario">Usuario</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                         <span class="input-group-text" id="basic-addon2"><i class="fa fa-key"></i></span>
+                        </div>
+                    <input type="text" class="form-control" id="editarUsuario" name="editarUsuario" required" aria-label="Usuario" aria-describedby="basic-addon2" readonly="">
+                    </div>
+                </div>
 
-            </div>
-
-            <!-- ENTRADA PARA EL USUARIO -->
-
-             <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
-
-                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" readonly>
-
-              </div>
-
-            </div>
 
             <!-- ENTRADA PARA LA CONTRASEÑA -->
 
-             <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
-
-                <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Escriba la nueva contraseña">
+             
+            <div class="form-group">
+                <label for="Contraseña">Contraseña</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                     <span class="input-group-text" id="basic-addon2"><i class="fa fa-lock"></i></span>
+                    </div>
+                <input type="password" class="form-control" name="editarPassword" placeholder="Escriba la nueva contraseña" required" aria-label="Contraseña" aria-describedby="basic-addon2">
 
                 <input type="hidden" id="passwordActual" name="passwordActual">
 
-              </div>
+                </div>
                 <b><font color ="red" size="1,5">*NO UTILIZAR CARACTERES ESPECIALES</font></b>
             </div>
 
@@ -374,8 +367,9 @@ MODAL EDITAR USUARIO
             <div class="form-group">
               
               <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
+               <div class="input-group-prepend">
+                     <span class="input-group-text" id="basic-addon2"><i class="fa fa-lock"></i></span>
+                    </div>
 
                 <select class="form-control input-lg" name="editarPerfil">
                   
@@ -447,95 +441,3 @@ MODAL EDITAR USUARIO
 
 ?> 
     
-
-   
-    <script>
-    $(document).ready(function() {
-        $('#myTable').DataTable();
-        $(document).ready(function() {
-            var table = $('#example').DataTable({
-                "columnDefs": [{
-                    "visible": false,
-                    "targets": 2
-                }],
-                "order": [
-                    [2, 'asc']
-                ],
-                "displayLength": 25,
-                "drawCallback": function(settings) {
-                    var api = this.api();
-                    var rows = api.rows({
-                        page: 'current'
-                    }).nodes();
-                    var last = null;
-                    api.column(2, {
-                        page: 'current'
-                    }).data().each(function(group, i) {
-                        if (last !== group) {
-                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
-                            last = group;
-                        }
-                    });
-                }
-            });
-            // Order by the grouping
-            $('#example tbody').on('click', 'tr.group', function() {
-                var currentOrder = table.order()[0];
-                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
-                    table.order([2, 'desc']).draw();
-                } else {
-                    table.order([2, 'asc']).draw();
-                }
-            });
-        });
-    });
-    $('#example23').DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    });
-    </script>
-    <script src="vistas/assets/node_modules/dropify/dist/js/dropify.min.js"></script>
-    <script>
-    $(document).ready(function() {
-        // Basic
-        $('.dropify').dropify();
-
-        // Translated
-        $('.dropify-fr').dropify({
-            messages: {
-                default: 'Glissez-déposez un fichier ici ou cliquez',
-                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
-                remove: 'Supprimer',
-                error: 'Désolé, le fichier trop volumineux'
-            }
-        });
-
-        // Used events
-        var drEvent = $('#input-file-events').dropify();
-
-        drEvent.on('dropify.beforeClear', function(event, element) {
-            return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
-        });
-
-        drEvent.on('dropify.afterClear', function(event, element) {
-            alert('File deleted');
-        });
-
-        drEvent.on('dropify.errors', function(event, element) {
-            console.log('Has Errors');
-        });
-
-        var drDestroy = $('#input-file-to-destroy').dropify();
-        drDestroy = drDestroy.data('dropify')
-        $('#toggleDropify').on('click', function(e) {
-            e.preventDefault();
-            if (drDestroy.isDropified()) {
-                drDestroy.destroy();
-            } else {
-                drDestroy.init();
-            }
-        })
-    });
-    </script>

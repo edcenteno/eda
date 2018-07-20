@@ -84,8 +84,7 @@ class ControladorUsuarios{
                             	</button>
                                 <h3 class="text-warning"><i class="fa fa-times"></i> Error</h3> 
                                 		Usuario o contraseña erronea, vuelva a intentarlo.
-                            </div>
-							<div class="alert alert-danger alert-rounded">Error al ingresar, vuelve a intentarlo</div>';
+                            </div>';
 
 				}
 
@@ -185,8 +184,10 @@ class ControladorUsuarios{
 					       	   "dni" => $_POST["nuevoDni"],
 					       	   "correo" => $_POST["nuevoCorreo"],
 					       	   "telefono" => $_POST["nuevoTelefono"]);
+				//var_dump($datos);
 
 				$respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
+				//echo $respuesta;
 			
 				if($respuesta == "ok"){
 

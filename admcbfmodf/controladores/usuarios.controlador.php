@@ -159,6 +159,7 @@ class ControladorUsuarios{
 
 				}
 
+
 				$tabla = "usuarioscabify";
 
 				$encriptar = crypt($_POST["nuevoPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');

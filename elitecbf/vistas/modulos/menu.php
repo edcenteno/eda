@@ -7,7 +7,24 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                <li class="user-pro"> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><img src="vistas/assets/images/users/2.jpg" alt="user-img" class="img-circle"><span class="hide-menu">Ed Centeno</span></a>
+                <li class="user-pro"> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                     <?php
+
+                    if($_SESSION["foto"] != ""){
+
+                        echo '<img src="'.$_SESSION["foto"].'" class="img-circle">';
+
+                    }else{
+
+
+                        echo '<img src="vistas/img/usuarios/default/anonymous.png" class="img-circleimg-circle">';
+
+                    }
+
+
+                    ?>
+                    <span class="hide-menu"><?php  echo $_SESSION["nombre"]; ?></span>
+                </a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="javascript:void(0)"><i class="ti-settings"></i> Configuración de cuenta</a></li>
                         <li><a href="javascript:void(0)"><i class="fa fa-power-off"></i> Cerrar sesión</a></li>

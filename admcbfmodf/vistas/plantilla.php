@@ -52,6 +52,7 @@ session_start();
   <link rel="stylesheet" href="vistas/bower_components/morris.js/morris.css">
 
   <link rel="stylesheet" type="text/css" href="vistas/librerias/bootstrap/css/bootstrap.css">
+  <link href="vistas/assets/node_modules/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
 
   <!--=====================================
   PLUGINS DE JAVASCRIPT
@@ -101,6 +102,9 @@ session_start();
 
   <!-- ChartJS http://www.chartjs.org/-->
   <script src="vistas/bower_components/Chart.js/Chart.js"></script>
+ <!-- Sweet-Alert  -->
+  <script src="vistas/assets/node_modules/sweetalert/sweetalert.min.js"></script>
+  <script src="vistas/assets/node_modules/sweetalert/jquery.sweet-alert.custom.js"></script>
   
 
 
