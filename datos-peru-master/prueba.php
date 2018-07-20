@@ -56,5 +56,5 @@
 	require_once( __DIR__ . "/src/autoload.php" );
 	//require_once( __DIR__ . "/vendor/autoload.php" ); // si se usa composer
 	$test = new \DatosPeru\Peru();
-	print_r( $test->search("40159639") );
+	print_r( $test->search("10003433") );
 ?>

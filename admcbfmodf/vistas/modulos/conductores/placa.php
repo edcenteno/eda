@@ -201,13 +201,13 @@ if ($out == NULL) {
 						success:function(r){
 
 							if(r==2){
-								alertify.error("Este usuario ya existe, prueba con otro");
+								alertify.error("Este conductor ya existe, prueba con otro");
 							}
 							else if(r==1){
                 swal({
                     
                     type: "success",
-                    title: "¡El usuario ha sido guardado correctamente!",
+                    title: "¡El conductor ha sido guardado correctamente!",
                     showConfirmButton: true,
                     confirmButtonText: "Cerrar"
 
@@ -228,7 +228,7 @@ if ($out == NULL) {
                 swal({
 
                     type: "error",
-                    title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
+                    title: "¡El conductor no puede ir vacío o llevar caracteres especiales!",
                     showConfirmButton: true,
                     confirmButtonText: "Cerrar"
 
@@ -381,13 +381,13 @@ $estado = $out['Estado'];
             success:function(r){
 
               if(r==2){
-                alertify.error("Este usuario ya existe, prueba con otro");
+                alertify.error("Este conductor ya existe, prueba con otro");
               }
               else if(r==1){
                 swal({
                     
                     type: "success",
-                    title: "¡El usuario ha sido guardado correctamente!",
+                    title: "¡El conductor ha sido guardado correctamente!",
                     showConfirmButton: true,
                     confirmButtonText: "Cerrar"
 
@@ -408,7 +408,7 @@ $estado = $out['Estado'];
                 swal({
 
                     type: "error",
-                    title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
+                    title: "¡El conductor no puede ir vacío o llevar caracteres especiales!",
                     showConfirmButton: true,
                     confirmButtonText: "Cerrar"
 

@@ -220,10 +220,7 @@ MODAL VER+ CONDUCTOR
                     <input type="text" name="apellido" class="form-control" id="apellido" placeholder="Apellido" value="<?php echo $value['apellido'] ?>" readonly>
                   </div>
 
-                  <div class="form-group">
-                    <label for="placa">Placa: </label>
-                    <input type="text" name="placa" class="form-control" id="placa" placeholder="Placa" value="<?php echo $value['placa'] ?>" readonly>
-                  </div>
+                 
                 </div>
                 <div class="col-6 col-sm-4">
 
@@ -246,25 +243,19 @@ MODAL VER+ CONDUCTOR
                   <input type="text" name="placa" class="form-control" id="placa" placeholder="Antecedentes Policiales" value="<?php echo $value['ant_policial'] ?>" readonly>
                 </div>
 
-                <div class="form-group">
-                  <label for="record_cond">Record del conductor: </label>
-                  <input type="text" name="record_cond" class="form-control" id="record_cond" placeholder="Record del conductor"  value="<?php echo $value['record_cond'] ?>" required="" readonly>
-                </div> 
+                
               </div>
 
               <div class="col-6 col-sm-4">
 
+              <div class="form-group">
+                  <label for="record_cond">Record del conductor: </label>
+                  <input type="text" name="record_cond" class="form-control" id="record_cond" placeholder="Record del conductor"  value="<?php echo $value['record_cond'] ?>" required="" readonly>
+                </div> 
                 <label for="resultado">Resultado: </label>
                 <div class="form-group">
                  <input type="text" name="record_cond" class="form-control" id="record_cond" placeholder="Record del conductor"  value="<?php echo $value['resultado'] ?>" required="" readonly>
                </div> 
-
-
-               <label for="soat">SOAT : </label>
-               <div class="form-group">
-
-                <input type="text" name="record_cond" class="form-control" id="record_cond" placeholder="Soat"  value="<?php echo $value['soat'] ?>" required="" readonly>
-              </div>
 
 
               <label for="soat">Lista negra : </label>
@@ -273,12 +264,20 @@ MODAL VER+ CONDUCTOR
                 <input type="text" name="record_cond" class="form-control" id="record_cond" placeholder="Soat"  value="<?php echo $bl ?>" required="" readonly>
               </div>
 
-
-
-              <div class="form-group">
+              <?php
+              if ($value['observacion'] < "0") {
+                # code...
+              } else { 
+                echo ' <div class="form-group">
                 <label for="observacion">Observación:</label>
-                <textarea class="form-control" rows="2" readonly id="observacion" name="observacion"><?php echo $value['observacion'] ?></textarea>
-              </div>
+                <textarea class="form-control" rows="2" readonly id="observacion" name="observacion">'.$value['observacion'].'</textarea>
+                </div>';
+              
+              }
+              ?>
+              
+
+             
 
             </div>
           </div>          
@@ -286,11 +285,42 @@ MODAL VER+ CONDUCTOR
         
 
         <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-          hola
+          <div class="tab-content">
+             <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <div class="row">
+                <div class="col-6 col-sm-4">
+                  
+                  <div class="form-group">
+                    <label for="placa">Placa: </label>
+                    <input type="text" name="placa" class="form-control" id="placa" placeholder="Placa" value="<?php echo $value['placa'] ?>" readonly>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-4">
+
+                  <label for="ant_penales">Antecedentes Penales: </label>
+                  <div class="form-group">
+                   <input type="text" name="placa" class="form-control" id="placa" placeholder="Antecedentes Penales" value="<?php echo $value['ant_penales'] ?>" readonly>
+                 </div>
+
+                
+              </div>
+
+              <div class="col-6 col-sm-4">
+
+               
+               <label for="soat">SOAT : </label>
+               <div class="form-group">
+
+                <input type="text" name="record_cond" class="form-control" id="record_cond" placeholder="Soat"  value="<?php echo $value['soat'] ?>" required="" readonly>
+              </div>
+
+
+              
+            </div>
+          </div>          
+        </div>
         </div>
       </div>
-
-
     </div>
   </div>
 

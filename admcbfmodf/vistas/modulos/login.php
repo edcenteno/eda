@@ -12,7 +12,7 @@
 
     <p class="login-box-msg">Cabify - Disfruta del viaje</p>
 
-    <form method="post">
+    <form method="post" id="loginform">
 
       <div class="form-group has-feedback">
 
