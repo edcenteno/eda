@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="vistas/assets/node_modules/dropify/dist/css/dropify.min.css">
 <!-- ============================================================== -->
 <!-- Container fluid  -->
 <!-- ============================================================== -->
@@ -27,9 +28,9 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <button type="button" class="btn btn-info d-none d-lg-block m-l-15" data-toggle="modal" data-target="#modalAgregarUsuario"><i class="fa fa-plus-circle"></i> Nuevo Usuario </button>
+                    <button type="button" class="btn btn-info d-none d-lg-block m-l-15" data-toggle="modal" data-target="#modalAgregarUsuario"><i class="fa fa-plus-circle"></i> Crear nuevo </button>
                       <div class="table-responsive m-t-20">
-                        <table class="display nowrap table table-hover table-striped table-bordered dt-responsive tablas" cellspacing="0" width="100%">
+                        <table id="myTable" class="display nowrap table table-hover table-striped table-bordered tablas" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
                                    <th style="width:10px">#</th>
@@ -128,7 +129,7 @@
 MODAL AGREGAR USUARIO
 ======================================-->
 
-<div id="modalAgregarUsuario" class="modal fade" tabindex="-1" role="dialog" style="display: none;">
+<div id="modalAgregarUsuario" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
   
   <div class="modal-dialog">
 
@@ -176,7 +177,7 @@ MODAL AGREGAR USUARIO
                         <div class="input-group-prepend">
                          <span class="input-group-text" id="basic-addon2"><i class="fa fa-user"></i></span>
                         </div>
-                    <input type="text" class="form-control" name="nuevoNombre" placeholder="Ingresar nombre" required aria-label="Nombre" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" name="nuevoNombre" placeholder="Ingresar nombre" required" aria-label="Nombre" aria-describedby="basic-addon2">
                     </div>
                 </div>
 
@@ -188,7 +189,7 @@ MODAL AGREGAR USUARIO
                         <div class="input-group-prepend">
                          <span class="input-group-text" id="basic-addon2"><i class="fa fa-key"></i></span>
                         </div>
-                    <input type="text" class="form-control" name="nuevoUsuario" placeholder="Ingresar usuario" id="nuevoUsuario" required aria-label="Usuario" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" name="nuevoUsuario" placeholder="Ingresar usuario" id="nuevoUsuario" required" aria-label="Usuario" aria-describedby="basic-addon2">
                     </div>
                 </div>
 
@@ -203,7 +204,7 @@ MODAL AGREGAR USUARIO
                         <div class="input-group-prepend">
                          <span class="input-group-text" id="basic-addon2"><i class="fa fa-lock"></i></span>
                         </div>
-                    <input type="password" class="form-control" name="nuevoPassword" placeholder="Ingresar contraseña" required aria-label="Contraseña" aria-describedby="basic-addon2">
+                    <input type="password" class="form-control" name="nuevoPassword" placeholder="Ingresar contraseña" required" aria-label="Contraseña" aria-describedby="basic-addon2">
                     </div>
                 </div>
 
@@ -215,7 +216,7 @@ MODAL AGREGAR USUARIO
                         <div class="input-group-prepend">
                          <span class="input-group-text" id="basic-addon2"><i class="fa fa-at"></i></span>
                         </div>
-                    <input type="email" class="form-control" name="nuevoCorreo" placeholder="Ingresar Correo" required aria-label="Correo" id="nuevoCorreo" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" name="nuevoCorreo" placeholder="Ingresar Correo" required" aria-label="Correo" id="nuevoCorreo" aria-describedby="basic-addon2">
                     </div>
                 </div>
 
@@ -227,14 +228,22 @@ MODAL AGREGAR USUARIO
                         <div class="input-group-prepend">
                          <span class="input-group-text" id="basic-addon2"><i class="fa fa-phone"></i></span>
                         </div>
-                    <input type="text" class="form-control" name="nuevoTelefono" placeholder="Ingresar telefono" required aria-label="Telefono" id="nuevoTelefono" aria-describedby="basic-addon2" data-mask="999999999">
+                    <input type="text" class="form-control" name="nuevoTelefono" placeholder="Ingresar telefono" required" aria-label="Telefono" id="nuevoTelefono" aria-describedby="basic-addon2" data-mask="999999999">
                     </div>
                 </div>
 
                 <!-- ENTRADA PARA SELECCIONAR SU PERFIL -->
 
-                <input type="text" hidden="" class="form-control" required aria-label="perfil" aria-describedby="basic-addon2" name="nuevoPerfil" value="Operador" id="nuevoPerfil" readonly="">
-               
+                <!-- <div class="form-group">
+                    <label for="perfil">Perfil</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                         <span class="input-group-text" id="basic-addon2"><i class="fa fa-user"></i></span>
+                        </div> -->
+                    <input type="text" hidden="" class="form-control" required" aria-label="perfil" aria-describedby="basic-addon2" name="nuevoPerfil" value="Operador" id="nuevoPerfil" readonly="">
+                   <!--  </div>
+                </div> -->
+
             </div>
             </div>
             <!-- ENTRADA PARA SUBIR FOTO -->
@@ -243,9 +252,9 @@ MODAL AGREGAR USUARIO
               
               <div class="panel">SUBIR FOTO</div>
 
-                <input type="file" name="nuevaFoto" class="nuevaFoto" />
+                <input type="file" id="input-file-now" name="nuevaFoto" class="dropify" />
 
-              <p class="help-block">*Peso máximo de la foto 2MB </p>
+              <p class="help-block">*Peso máximo de la foto 2MB <br> **No es obligatorio</p>
               </div>
 
             
@@ -430,4 +439,52 @@ MODAL EDITAR USUARIO
   $borrarUsuario = new ControladorUsuarios();
   $borrarUsuario -> ctrBorrarUsuario();
 
-?>
+?> 
+    
+    <script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+        $(document).ready(function() {
+            var table = $('#example').DataTable({
+                "columnDefs": [{
+                    "visible": false,
+                    "targets": 2
+                }],
+                "order": [
+                    [2, 'asc']
+                ],
+                "displayLength": 25,
+                "drawCallback": function(settings) {
+                    var api = this.api();
+                    var rows = api.rows({
+                        page: 'current'
+                    }).nodes();
+                    var last = null;
+                    api.column(2, {
+                        page: 'current'
+                    }).data().each(function(group, i) {
+                        if (last !== group) {
+                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
+                            last = group;
+                        }
+                    });
+                }
+            });
+            // Order by the grouping
+            $('#example tbody').on('click', 'tr.group', function() {
+                var currentOrder = table.order()[0];
+                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                    table.order([2, 'desc']).draw();
+                } else {
+                    table.order([2, 'asc']).draw();
+                }
+            });
+        });
+    });
+    $('#example23').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    });
+    </script>

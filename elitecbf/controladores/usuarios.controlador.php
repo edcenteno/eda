@@ -20,8 +20,9 @@ class ControladorUsuarios{
 				$item = "usuario";
 				$valor = $_POST["ingUsuario"];
 
-				$respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
-
+				$respuesta = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
+				//var_dump($respuesta);
+				
 				if($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptar){
 
 					if($respuesta["estado"] == 1){
@@ -36,6 +37,7 @@ class ControladorUsuarios{
 						/*=============================================
 						REGISTRAR FECHA PARA SABER EL ÚLTIMO LOGIN
 						=============================================*/
+				
 
 						date_default_timezone_set('America/Lima');
 
@@ -78,11 +80,11 @@ class ControladorUsuarios{
 				}else{
 
 					echo '<br>
-							<div class="alert alert-warning">
+							<div class="alert alert-danger">
                             	<button type="button" class="close" data-dismiss="alert" aria-label="Close"> 
                             		<span aria-hidden="true">&times;</span> 
                             	</button>
-                                <h3 class="text-warning"><i class="fa fa-times"></i> Error</h3> 
+                                <h3 class="text-danger"><i class="fa fa-times"></i> Error</h3> 
                                 		Usuario o contraseña erronea, vuelva a intentarlo.
                             </div>';
 
@@ -99,8 +101,7 @@ class ControladorUsuarios{
 	=============================================*/
 
 	static public function ctrCrearUsuario(){
-
-		if(isset($_POST["nuevoUsuario"])){
+	if(isset($_POST["nuevoUsuario"])){
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
 			   preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoUsuario"]) ){
@@ -172,6 +173,7 @@ class ControladorUsuarios{
 
 				}
 
+
 				$tabla = "usuarioscabify";
 
 				$encriptar = crypt($_POST["nuevoPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
@@ -184,11 +186,9 @@ class ControladorUsuarios{
 					       	   "dni" => $_POST["nuevoDni"],
 					       	   "correo" => $_POST["nuevoCorreo"],
 					       	   "telefono" => $_POST["nuevoTelefono"]);
-				//var_dump($datos);
 
 				$respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
-				//echo $respuesta;
-			
+				
 				if($respuesta == "ok"){
 
 					echo '<script>
@@ -198,6 +198,7 @@ class ControladorUsuarios{
 						type: "success",
 						title: "¡El usuario ha sido guardado correctamente!",
 						showConfirmButton: true,
+						confirmButtonColor: "#8cd4f5",
 						confirmButtonText: "Cerrar"
 
 					}).then(function(result){
@@ -226,6 +227,7 @@ class ControladorUsuarios{
 						type: "error",
 						title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
 						showConfirmButton: true,
+						 confirmButtonColor: "#dd6b55",
 						confirmButtonText: "Cerrar"
 
 					}).then(function(result){
@@ -248,6 +250,7 @@ class ControladorUsuarios{
 
 
 	}
+
 
 	/*=============================================
 	MOSTRAR USUARIO
@@ -367,6 +370,7 @@ class ControladorUsuarios{
 									  type: "error",
 									  title: "¡La contraseña no puede ir vacía o llevar caracteres especiales!",
 									  showConfirmButton: true,
+									  confirmButtonColor: "#dd6b55",
 									  confirmButtonText: "Cerrar"
 									  }).then(function(result) {
 										if (result.value) {
@@ -393,6 +397,7 @@ class ControladorUsuarios{
 							   "foto" => $ruta);
 
 				$respuesta = ModeloUsuarios::mdlEditarUsuario($tabla, $datos);
+				var_dump($respuesta);
 
 				if($respuesta == "ok"){
 
@@ -402,6 +407,7 @@ class ControladorUsuarios{
 						  type: "success",
 						  title: "El usuario ha sido editado correctamente",
 						  showConfirmButton: true,
+					  	  confirmButtonColor: "#8cd4f5",
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result) {
 									if (result.value) {
@@ -424,6 +430,7 @@ class ControladorUsuarios{
 						  type: "error",
 						  title: "¡El nombre no puede ir vacío o llevar caracteres especiales!",
 						  showConfirmButton: true,
+					  	  confirmButtonColor: "#dd6b55",
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result) {
 							if (result.value) {
@@ -470,6 +477,7 @@ class ControladorUsuarios{
 					  title: "El usuario ha sido borrado correctamente",
 					  showConfirmButton: true,
 					  confirmButtonText: "Cerrar",
+					  confirmButtonColor: "#dd6b55",
 					  closeOnConfirm: false
 					  }).then(function(result) {
 								if (result.value) {

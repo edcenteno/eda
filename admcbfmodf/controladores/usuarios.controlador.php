@@ -181,18 +181,15 @@ class ControladorUsuarios{
 
 					swal({
 
-						type: "success",
 						title: "¡El usuario ha sido guardado correctamente!",
 						showConfirmButton: true,
-						confirmButtonText: "Cerrar"
+						icon: "success",
+  						button: "Cerrar!",
 
-					}).then(function(result){
-
-						if(result.value){
+					}).then((value) => {						
 						
 							window.location = "usuarios";
-
-						}
+			
 
 					});
 				

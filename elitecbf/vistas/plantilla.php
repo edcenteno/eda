@@ -28,8 +28,12 @@ session_start();
     <link href="vistas/dist/css/style.min.css" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
     <link href="vistas/dist/css/pages/dashboard1.css" rel="stylesheet">
-    <link href="vistas/assets/node_modules/switchery/dist/switchery.min.css" rel="stylesheet" />
+    <!-- datatable responsive -->
+    <link href="vistas/dt/css/responsive.bootstrap.min.css" rel="stylesheet">
    
+    <!-- page css -->
+    <link href="vistas/dist/css/pages/login-register-lock.css" rel="stylesheet">
+
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
@@ -74,8 +78,13 @@ session_start();
     <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
-    <script src="vistas/assets/node_modules/switchery/dist/switchery.min.js"></script>
-     <script src="vistas/dist/js/pages/mask.js"></script>
+    <script src="vistas/dt/js/dataTables.responsive.min.js"></script>
+    <script src="vistas/dt/js/responsive.bootstrap.min.js"></script>
+
+    <script src="vistas/dist/js/pages/mask.js"></script>
+     
+    <!-- SweetAlert 2 -->
+    <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
     <!-- end - This is for export functionality only -->
 
     </head>
@@ -134,7 +143,7 @@ CUERPO DOCUMENTO
     /*=============================================
     FOOTER
     =============================================*/
-   echo '</div>';
+    echo '</div>';
     include "modulos/footer.php";
 
 
