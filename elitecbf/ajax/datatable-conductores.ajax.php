@@ -19,16 +19,27 @@ class TablaConductor{
   	$conductores = ControladorConductor::ctrMostrarConductor($item, $valor, $orden);
   	//var_dump($conductores);
   	//return;
-  	$vermas="<div class='btn-group'><button class='btn btn-success bt-sm'>ver<i class='fa fa-fw fa-plus'></i></button></div>";
-
+  	
   	echo '{
 			"data": [';
 
 			for($i = 0; $i < count($conductores)-1; $i++){
+				$vermas="<div class='btn-group'><a class='btn btn-success btnvermas' idconductor='".$conductores[$i]["cont"]."' href='vermas' target='_blank'>ver<i class='fa fa-fw fa-plus'></i></a></div>";
+
+				if($conductores[$i]["observacion"] != ""){
+
+		           $dni= "<span class='badge badge-warning ml-auto'>".$conductores[$i]["dni"]."</span>";
+
+		         }else{
+
+		          $dni = $conductores[$i]["dni"];
+
+		        }
+
 
 				echo '[
 			      "'.$conductores[$i]["fecha"].'",
-			      "'.$conductores[$i]["dni"].'",
+			      "'.$dni.'",
 			      "'.$conductores[$i]["nombre"].'",
 			      "'.$conductores[$i]["apellido"].'",
 			      "'.$conductores[$i]["placa"].'",

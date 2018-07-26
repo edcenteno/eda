@@ -1,5 +1,3 @@
-<div class="page-wrapper">
-
 <div class="container-fluid">
 
     <div class="row page-titles">
@@ -30,4 +28,3 @@
     
 </div>
 </section>
-</div>

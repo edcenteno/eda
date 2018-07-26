@@ -71,13 +71,13 @@ session_start();
     <!-- This is data table -->
     <script src="vistas/assets/node_modules/datatables/jquery.dataTables.min.js"></script>
     <!-- start - This is for export functionality only -->
-    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
-    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+    <script src="vistas/dt/js/dataTables.buttons.min.js"></script>
+    <script src="vistas/dt/js/buttons.flash.min.js"></script>
+    <script src="vistas/dt/js/jszip.min.js"></script>
+    <script src="vistas/dt/js/pdfmake.min.js"></script>
+    <script src="vistas/dt/js/vfs_fonts.js"></script>
+    <script src="vistas/dt/js/buttons.html5.min.js"></script>
+    <script src="vistas/dt/js/buttons.print.min.js"></script>
     <script src="vistas/dt/js/dataTables.responsive.min.js"></script>
     <script src="vistas/dt/js/responsive.bootstrap.min.js"></script>
 
@@ -125,6 +125,7 @@ CUERPO DOCUMENTO
          $_GET["ruta"] == "conductores" ||
          $_GET["ruta"] == "busqueda" ||
          $_GET["ruta"] == "listado" ||
+         $_GET["ruta"] == "vermas" ||
          $_GET["ruta"] == "salir"){ 
 
        include "modulos/".$_GET["ruta"].".php";
